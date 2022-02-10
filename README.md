@@ -22,3 +22,9 @@ Project is deployed to [Heroku](https://heroku.com/): [Link to app](https://flas
 # Contributions
 
 Feel free to message me, open issues, provide helpful informations with best practises and so on. This will help me learning.
+
+# Ideas
+
+* Replace the random number with a session ID as unique key for identifying background task
+* Checking max size limit and correct file type, secure upload form
+* Replace Flask Executor with a Message Queue
