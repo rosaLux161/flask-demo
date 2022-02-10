@@ -11,7 +11,7 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
     <script>
-        var socket = io.connect('http://' + document.domain + ':' + location.port);
+        var socket = io.connect('https://' + document.domain + ':' + location.port);
 
         setInterval(function() {
             socket.emit('process_image', "{{ unique_id }}");
