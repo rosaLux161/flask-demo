@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Whatsifier</title>
+</head>
+
+<body>
+    <div id="wating">
+        <p>Waiting ...</p>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
+    <script>
+        var socket = io.connect('http://' + document.domain + ':' + location.port);
+        socket.emit('process_image', "{{ unique_id }}");
+        socket.on('process_finished', function (encoded_img_data) {
+            document.getElementById("wating").innerHTML = '<img id="picture" src="data:image/jpeg;base64,' + encoded_img_data + '">'
+        });
+    </script>
+</body>
+
+</html>
