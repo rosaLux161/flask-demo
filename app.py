@@ -29,6 +29,8 @@ def process_image(image):
 
     # do some magic
     open_image = open_image.resize((50, 50))
+    # and other time consuming stuff
+    time.sleep(5)
     # ...
 
     return open_image
