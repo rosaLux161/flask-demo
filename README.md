@@ -11,9 +11,13 @@ This project is supposed to learn Flask.
 5) Run: `python app.py`
 6) Visit: [http://localhost:8000/](http://localhost:8000/)
 
+## Actual bug
+
+You need to change `https` to `http` in `templates/processing.html` line `var socket = io.connect('https://' + document.domain + ':' + location.port);` to run locally.
+
 # Herokuapp
 
-Project is deployed to [Heroku](https://heroku.com/): [Link to app](http://xyz.herokuapp.com/)
+Project is deployed to [Heroku](https://heroku.com/): [Link to app](https://flask-demo-rosalux.herokuapp.com/)
 
 # Contributions
 
