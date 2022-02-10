@@ -15,7 +15,6 @@
 
         setInterval(function() {
             socket.emit('process_image', "{{ unique_id }}");
-            console.log('In loop')
         }, 1 * 1000);
 
         socket.on('process_finished', function (encoded_img_data) {
