@@ -14,7 +14,8 @@
         var socket = io.connect('https://' + document.domain + ':' + location.port);
 
         setInterval(function() {
-            socket.emit('process_image', "{{ unique_id }}");
+            socket.emit('check_process', "{{ unique_id }}");
+            
         }, 1 * 1000);
 
         socket.on('process_finished', function (encoded_img_data) {

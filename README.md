@@ -7,9 +7,8 @@ This project is supposed to learn Flask.
 1) Create venv: `python -m venv venv`
 2) Activate venv: `source venv/bin/activate`
 3) Install Python dependencies: `pip install -r requirements.txt`
-4) Export port: `export PORT=8000`
-5) Run: `python app.py`
-6) Visit: [http://localhost:8000/](http://localhost:8000/)
+4) Run: `python app.py`
+5) Visit: [http://localhost:8000/](http://localhost:8000/)
 
 ## Actual bug
 
