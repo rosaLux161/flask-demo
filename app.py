@@ -36,6 +36,8 @@ def handle_my_custom_event(unique_id):
         encoded_img_data = encode_image(process_image.AsyncResult(unique_id).get())
         process_image.AsyncResult(unique_id).forget()
         emit('process_finished', encoded_img_data)
+    else:
+        logging.warn(f'Process status: {process_image.AsyncResult(unique_id).status}')
 
 if __name__ == '__main__':
     socketio.run(app, host='0.0.0.0', port=int(os.environ.get('PORT', '8000')))
