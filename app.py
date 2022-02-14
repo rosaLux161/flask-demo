@@ -26,6 +26,7 @@ def index():
             image = request.files['image'].read()
 
             unique_id = process_image.delay(image).id
+            logging.warn(f'Unique ID: {unique_id}')
 
             return render_template('processing.html', unique_id=unique_id)
     return render_template('upload.html')
