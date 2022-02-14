@@ -8,7 +8,7 @@ celery = Celery('tasks', broker=os.environ.get('CLOUDAMQP_URL', 'amqp://guest:gu
 
 celery.conf.update(
     CELERY_TASK_SERIALIZER = 'pickle',
-    CELERY_ACCEPT_CONTENT = ['pickle']
+    CELERY_ACCEPT_CONTENT = ['pickle', 'application/json']
 )
 
 @celery.task()
