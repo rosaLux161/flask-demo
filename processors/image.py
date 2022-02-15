@@ -4,7 +4,7 @@ from PIL import Image
 from time import sleep
 import os
 
-celery = Celery('tasks', broker=os.environ.get('CLOUDAMQP_URL', 'amqp://guest:guest@localhost:5672/'), backend=os.environ.get('REDIS_URL', 'db+sqlite:///backend.sqlite3'))
+celery = Celery('tasks', broker=os.environ.get('CLOUDAMQP_URL', 'amqp://guest:guest@broker:5672/'), backend=os.environ.get('REDIS_URL', 'redis://backend:6379/0'))
 
 celery.conf.update(
     CELERY_TASK_SERIALIZER = 'pickle',

@@ -1,0 +1,35 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    expose:
+      - "8000"
+    volumes:
+      - ".:/code"
+    command: [python, app.py]
+    restart: always
+  worker:
+    build: .
+    command: [celery, -A, processors.image, worker, --loglevel=INFO]
+    restart: always
+    volumes:
+      - ".:/code"
+    environment:
+      - C_FORCE_ROOT=true
+  broker:
+    image: rabbitmq:3.9-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    expose:
+      - "5672"
+      - "15672"
+    restart: always
+  backend:
+    image: redis:latest
+    restart: always
+    ports:
+      - "6379:6379"
+    expose:
+      - "6379"

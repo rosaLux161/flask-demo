@@ -34,12 +34,12 @@ def index():
 @socketio.on('check_process')
 def handle_my_custom_event(unique_id):
     if process_image.AsyncResult(unique_id).status == 'SUCCESS':
-        logging.warn(process_image.AsyncResult(unique_id).get())
+        logging.warning(process_image.AsyncResult(unique_id).get())
         encoded_img_data = encode_image(process_image.AsyncResult(unique_id).get())
         process_image.AsyncResult(unique_id).forget()
         emit('process_finished', encoded_img_data)
     else:
-        logging.warn(f'Process status: {process_image.AsyncResult(unique_id).status}')
+        logging.warning(f'Process status: {process_image.AsyncResult(unique_id).status}')
 
 if __name__ == '__main__':
     socketio.run(app, host='0.0.0.0', port=int(os.environ.get('PORT', '8000')))
